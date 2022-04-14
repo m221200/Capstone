@@ -1,5 +1,6 @@
 # About Project
-This is our Capstone Project for 
+This is our Capstone Project that involves disabling and hijacking the AR Drone 2.0
+through a telnet attack and a deauthentication attack paired with a hijack. 
 
 # Running
 Inside of the project directory--
