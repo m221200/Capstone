@@ -14,6 +14,8 @@ const Hijack2 = () => {
   const goBack = useRef(null)
 
   const [droneMac, setdroneMac] = useState(null)
+  const [droneChannel, setdroneChannel] = useState(null)
+
 
   useEffect(() => {
     ipcRenderer.send('sendMac');
@@ -21,6 +23,11 @@ const Hijack2 = () => {
     ipcRenderer.on('droneMac', (event, arg) => {
         console.log("Here", arg)
         setdroneMac(arg)
+    });
+
+    ipcRenderer.on('droneChannel', (event, arg) => {
+        console.log("Here Channel", arg)
+        setdroneChannel(arg)
     });
   }, [])
 
@@ -65,7 +72,7 @@ const Hijack2 = () => {
       <div ref={text}>
           <h1>Deauthentication continued</h1>
           <h2>We can now move on to finding the MAC address of the phone that is controlling the drone. Please enter the following command in that second terminal you just used in the previous page: </h2>
-          <br></br><br></br><h2 className="Hello">sudo airodump-ng --bssid {droneMac} --channel 6 wlp2s0</h2><br></br><br></br>
+          <br></br><br></br><h2 className="Hello">sudo airodump-ng --bssid {droneMac} --channel {droneChannel} wlp2s0mon</h2><br></br><br></br>
           <h2>You should now see a similar screen as the previous command. However, these are all the devices that are connected to the AR Drone’s WiFi network. There should only be one device listed. That is the phone’s MAC address! Please input that MAC address in the box below:</h2>
           <div className="Hello">
             <input ref={myContainer} onChange={success} type="text" id="PhoneMacAddress" className="css-input" placeholder="Phone's MAC Address"></input>

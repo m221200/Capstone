@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom"
 import icon from '../../assets/droneIcon2.svg';
 import './App.css';
 import Connect from "./Connect"
+import NetFam1 from "./NetFam1"
+import NetFam2 from "./NetFam2"
+import NetFam3 from "./NetFam3"
+import NetFam4 from "./NetFam4"
 import Hijack1 from "./Hijack1"
 import Hijack2 from "./Hijack2"
 import Hijack3 from "./Hijack3"
@@ -25,7 +29,7 @@ const Home = () => {
   // document.getElementById('connect').setAttribute("")
 
   return (
-    <div>
+    <div className="center">
       <div className="Hello">
         <img width="200px" alt="icon" src={icon} />
       </div>
@@ -35,14 +39,8 @@ const Home = () => {
 
 
       <div className="Hello">
-        <button type="button" onClick={() => navigate('/NetHelp')}>
+        <button type="button" onClick={() => navigate('/NetFam1')}>
           Get Started
-        </button>
-      </div>
-
-      <div className="Hello">
-        <button type="button" onClick={() => navigate('/Hijack3')}>
-          Hijack
         </button>
       </div>
 
@@ -59,6 +57,10 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/NetFam1" element={<NetFam1 />} />
+        <Route path="/NetFam2" element={<NetFam2 />} />
+        <Route path="/NetFam3" element={<NetFam3 />} />
+        <Route path="/NetFam4" element={<NetFam4 />} />
         <Route path="/connect" element={<Connect />} />
         <Route path="/hijack1" element={<Hijack1 />} />
         <Route path="/hijack2" element={<Hijack2 />} />

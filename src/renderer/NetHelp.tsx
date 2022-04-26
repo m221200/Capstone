@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import icon from '../../assets/droneIcon2.svg';
+import pic from '../../assets/image.png'
 import './App.css';
 import App from "./App"
 var iwlist = require('wireless-tools/iwlist');
@@ -21,11 +22,15 @@ const NetHelp = () => {
         <h2>Start by connecting your laptop to the Parrot A.R. Drone, the network name should be something along the lines of “ardrone_XXXXX”. Note: once you connect to the drone you will NOT have internet access.
             Troubleshooting: if the network is not showing ensure that your drone battery is properly seated and connected to the device. Additionally, you can attempt turning your wifi adapter on and off, or disconnecting and reconnecting the drone battery!
         </h2>
+
+
         <h2>Find the ip address of the drone:
 Open a new terminal by typing Ctl+Alt+T all together.
 The most traditional method of discovering an ip address on linux is the “ifconfig” command, try running it now in your new terminal and looking at the information it displays!
 Can you discern the ip address of the drone from the ifconfig output? For example, when team counter-drone runs the command we receive the ip address “192.168.1.1” [see more: ip address, ifconfig, etc…depth] make sure to remember this address!
 </h2>
+<img className='img' src={pic}></img>
+
 <h2>Run the nmap command on the drone’s ip address
 “Nmap” or network mapper is a network scanner used for a sleuth of reasons in regards to host discovery, port scanning, and a variety of other things.
 Run the command “nmap -o [drone ip address]” on your new terminal and see what information you can discern about the drone. What OS is it running? What ports or servers are open?
@@ -43,6 +48,8 @@ There is a whole host of information available by poking around in the drones bu
 </h2>
       </div>
       <br></br>
+
+      <div className="flex">
       <div className="Hello">
         <button type="button" onClick={() => navigate('/')}>
           Go Back
@@ -53,6 +60,8 @@ There is a whole host of information available by poking around in the drones bu
           Continue
         </button>
       </div>
+      </div>
+
       <br></br><br></br><br></br>
 
     </div>

@@ -7,7 +7,7 @@ const exec  = require('child_process').exec;
 import './App.css';
 
 
-const NetHelp = () => {
+const Select = () => {
   const navigate = useNavigate();
   return (
     <div class="summary">
@@ -21,10 +21,10 @@ const NetHelp = () => {
       </div>
       <br></br><br></br><br></br>
 
-      <div><button type="button" onClick={() => navigate('/NetHelp')}>Go Back</button></div>
+      <button className="flex1" type="button" onClick={() => navigate('/NetFam4')}>Go Back</button>
 
     </div>
   );
 }
 
-export default NetHelp;
+export default Select;
